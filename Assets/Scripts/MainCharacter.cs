@@ -48,6 +48,12 @@ public class MainCharacter : Character
 			return;
 			
 		ProcessInput();
+
+		base.Update();
+
+		var scale = transform.localScale;
+		scale.x = Cursor.position.x < transform.position.x ? -1 : 1;
+		transform.localScale = scale;
 	}
 
 	private void ProcessInput() 

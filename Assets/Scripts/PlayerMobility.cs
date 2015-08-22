@@ -4,7 +4,6 @@ using System.Collections;
 public class PlayerMobility : MonoBehaviour
 {
 	public float Speed = 40f;
-	public float KickStrength = 20000f;
 
 	private Rigidbody2D _rigidbody;
 
