@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BrawlerEnemy : Enemy {
+public class BrawlerEnemy : Enemy 
+{
 	protected override void Acquire()
 	{
 		Tracking = true;
@@ -19,8 +20,10 @@ public class BrawlerEnemy : Enemy {
 
 	public override void Attack() 
 	{
-		if(MainCharacter.Instance.Alive)
+		if(MainCharacter.Instance.Alive && CanAttack)
 		{
+			CanAttack = false;
+			StartCoroutine(CoolWeaponDown());
 			MainCharacter.Instance.Hurt(Damage);
 		}
 	}

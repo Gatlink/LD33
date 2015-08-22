@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Character : Movable {
+public abstract class Character : Mobile 
+{
 	[Space(5)]
 	public int Life = 50;
 	public int Damage = 12;
