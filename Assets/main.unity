@@ -200,12 +200,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97805128564f34640a5cc3a4b0e15daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 100
+  MaxSpeed: 50
   Acceleration: 1
   Friction: .155000001
   Life: 50
   Damage: 12
   AcquisitionRange: 150
+  MinRandomDelay: .5
+  MaxRandomDelay: 1
 --- !u!212 &460120641
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -273,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaceaf22975b1474ebb0a54c6109fff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 300
+  MaxSpeed: 150
   Acceleration: 1
   Friction: 1
   Player: {fileID: 1519354508}

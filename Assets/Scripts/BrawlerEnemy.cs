@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class BrawlerEnemy : Enemy {
-	public override void Acquire()
+	protected override void Acquire()
 	{
 		Tracking = true;
 		Vector3 toTarget = MainCharacter.Instance.transform.position - transform.position;
