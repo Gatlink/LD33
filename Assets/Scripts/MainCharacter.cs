@@ -3,8 +3,7 @@ using System.Collections;
 
 public class MainCharacter : Character
 {
-	public Transform Target;
-	public float KickDistance = 1f;
+	public Transform Cursor;
 	public float KickStrength = 5f;
 
 	private static MainCharacter _instance;
@@ -49,11 +48,6 @@ public class MainCharacter : Character
 			return;
 			
 		ProcessInput();
-		//base.Update();
-
-		var scale = transform.localScale;
-		scale.x = Target.position.x < transform.position.x ? -1 : 1;
-		transform.localScale = scale;
 	}
 
 	private void ProcessInput() 
@@ -69,17 +63,20 @@ public class MainCharacter : Character
 
 		if (Input.GetAxis("Fire1") != 0f)
 			Attack();
+
+		var scale = transform.localScale;
+		scale.x = Cursor.position.x < transform.position.x ? -1 : 1;
+		transform.localScale = scale;
 	}
 
 	public override void Attack() 
 	{
-		var direction = (Target.position - transform.position).normalized;
+		var direction = (Cursor.position - transform.position).normalized;
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 64f, 1 << LayerMask.NameToLayer("Monster"));
 		if (hit.collider != null)
 		{
-			Debug.Log("PAF");
 			var monster = hit.collider.GetComponent<Monster>();
-			monster.GetKicked(direction, KickStrength);
+			monster.GetKicked(direction * KickStrength);
 		}
 	}
 	

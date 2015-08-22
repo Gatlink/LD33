@@ -26,9 +26,4 @@ public class MonsterMobility : MonoBehaviour
 		scale.x = Player.position.x < transform.position.x ? -1 : 1;
 		transform.localScale = scale;
 	}
-
-	public void GetKicked(Vector3 force)
-	{
-		_rigidbody.AddForce(force);
-	}
 }

@@ -1,46 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Monster : Movable
+public class Monster : MonoBehaviour
 {
-	public Transform Player;
-
-	public float DistanceMinFromTarget = 128f;
-	public float DistanceMaxFromTarget = 320f;
-
-	public bool Following
+	public void GetKicked(Vector3 force)
 	{
-		get; private set;
-	} 
-
-	public override void Update()
-	{
-		var toTarget = Player.position - transform.position;
-		var closeEnough = (toTarget.sqrMagnitude <= DistanceMinFromTarget * DistanceMinFromTarget);
-		if(closeEnough)
-		{
-			Following = false;
-			return;
-		}
-		
-		var tooFar = (toTarget.sqrMagnitude >= DistanceMaxFromTarget * DistanceMaxFromTarget);
-		if(tooFar || Following)
-		{
-			Following = true;
-			toTarget.Normalize();
-			Move(toTarget);
-		}
-
-		base.Update();
-
-		// Turn toward the player
-		var scale = transform.localScale;
-		scale.x = Player.position.x < transform.position.x ? -1 : 1;
-		transform.localScale = scale;
-	}
-
-	public void GetKicked(Vector3 direction, float strength)
-	{
-		Debug.Log("Ouch!");
+		GetComponent<Rigidbody2D>().AddForce(force);
 	}
 }
