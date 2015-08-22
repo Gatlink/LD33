@@ -3,6 +3,7 @@ using System.Collections;
 
 public class MainCharacter : Movable
 {
+	public Transform Target;
 	public float Speed = 10f;
 	[Range(0f,1f)]
 	public float Friction = 1f;
@@ -15,6 +16,10 @@ public class MainCharacter : Movable
 
 	private void ProcessInput() 
 	{
+		var scale = transform.localScale;
+		scale.x = Target.position.x < transform.position.x ? -1 : 1;
+		transform.localScale = scale;
+
 		Vector3 axis = Vector3.zero;
 		bool move = false;
 		float speed = Speed;
@@ -28,32 +33,11 @@ public class MainCharacter : Movable
 			speed *= Mathf.Max(Mathf.Abs(axis.x), Mathf.Abs(axis.y));
 			Debug.Log(speed);
 		}
-		else 
-		{
-			if(Input.GetKey(KeyCode.UpArrow)) 
-			{
-				axis += Vector3.up;
-				move = true;
-			}
 
-			if(Input.GetKey(KeyCode.DownArrow)) 
-			{
-				axis += Vector3.down;
-				move = true;
-			}
-
-			if(Input.GetKey(KeyCode.LeftArrow)) 
-			{
-				axis += Vector3.left;
-				move = true;
-			}
-
-			if(Input.GetKey(KeyCode.RightArrow)) 
-			{
-				axis += Vector3.right;
-				move = true;
-			}
-		}
+		// if (Input.GetAxis("Fire 1"))
+		// {
+			
+		// }
 
 		if(move)
 		{

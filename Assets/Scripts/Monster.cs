@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Monster : Movable
 {
-	public Transform Target;
+	public Transform Player;
 	public float Speed = 1.6f;
 	public float VelocityGain = 10f;
 	public float PositionGain = 50f;
@@ -20,10 +20,10 @@ public class Monster : Movable
 	{
 		// Turn toward the player
 		var scale = transform.localScale;
-		scale.x = Target.position.x < transform.position.x ? -1 : 1;
+		scale.x = Player.position.x < transform.position.x ? -1 : 1;
 		transform.localScale = scale;
 
-		var positionError = Target.position - transform.position;
+		var positionError = Player.position - transform.position;
 		var distance = positionError.magnitude;
 
 		if (Moving && distance <= DistanceMinFromTarget)
