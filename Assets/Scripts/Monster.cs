@@ -4,7 +4,7 @@ using System.Collections;
 public class Monster : Movable
 {
 	public Transform Player;
-	public float Speed = 1.6f;
+	public float SpeedRatio = 1.6f;
 	public float VelocityGain = 10f;
 	public float PositionGain = 50f;
 	public float DistanceMinFromTarget = 1f;
@@ -13,7 +13,6 @@ public class Monster : Movable
 	public override void Awake()
 	{
 		_velocity = Vector3.zero;
-		_friction = 1f;
 	}
 
 	public override void Update()
@@ -24,19 +23,19 @@ public class Monster : Movable
 		transform.localScale = scale;
 
 		var positionError = Player.position - transform.position;
-		var distance = positionError.magnitude;
+		var inRange = (positionError.sqrMagnitude <= DistanceMinFromTarget * DistanceMinFromTarget);
 
-		if (Moving && distance <= DistanceMinFromTarget)
+		if (Moving && inRange)
 		{
 			_velocity = Vector3.zero;
 			return;
 		}
 
-		if (!Moving && distance <= DistanceMaxFromTarget)
+		if (!Moving && inRange)
 			return;
 		
 		var velocityError = -_velocity;
-		var acc = Speed * (positionError * PositionGain + velocityError * VelocityGain);
+		var acc = SpeedRatio * (positionError * PositionGain + velocityError * VelocityGain);
 		_velocity += acc * Time.deltaTime;
 
 		base.Update();
