@@ -141,6 +141,7 @@ GameObject:
   - 92: {fileID: 138202643}
   - 124: {fileID: 138202642}
   - 81: {fileID: 138202641}
+  - 114: {fileID: 138202646}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -214,6 +215,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &138202646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 138202640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba59688d96d26447a425ab92c702377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 1519354508}
 --- !u!1 &460120639
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,7 +243,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &460120640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,6 +261,7 @@ MonoBehaviour:
   Life: 50
   Damage: 12
   AcquisitionRange: 150
+  AttackCooldown: 1
   MinRandomDelay: .5
   MaxRandomDelay: 1
 --- !u!212 &460120641
@@ -469,6 +483,29 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 401620, guid: 1942f9eb80226294b85a061e7fa4663f, type: 2}
   m_PrefabInternal: {fileID: 462922860}
+--- !u!1 &1739378169 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 115356, guid: 1942f9eb80226294b85a061e7fa4663f, type: 2}
+  m_PrefabInternal: {fileID: 462922860}
+--- !u!114 &1739378174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1739378169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a63b1bd106269498e5d2da001e9a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxSpeed: 600
+  Acceleration: 1
+  Friction: .206
+  Life: 50
+  Damage: 12
+  Target: {fileID: 1778910960}
+  KickDistance: 1
+  KickStrength: 5
 --- !u!4 &1778910960 stripped
 Transform:
   m_PrefabParentObject: {fileID: 414046, guid: 7aa18c820310f174984725ac0123fa69, type: 2}
