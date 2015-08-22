@@ -4,6 +4,7 @@ using System.Collections;
 public class MainCharacter : Character
 {
 	public Transform Target;
+	
 	private static MainCharacter m_instance;
     public static MainCharacter Instance
     {

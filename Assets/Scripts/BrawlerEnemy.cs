@@ -6,12 +6,13 @@ public class BrawlerEnemy : Enemy {
 	{
 		Tracking = true;
 		Vector3 toTarget = MainCharacter.Instance.transform.position - transform.position;
-		if(toTarget.sqrMagnitude < 32f * 32f)
+		if(toTarget.sqrMagnitude < 64f * 64f)
 		{
 			Attack();
 		}
 		else
 		{
+			toTarget.Normalize();
 			Move(toTarget);
 		}
 	}
