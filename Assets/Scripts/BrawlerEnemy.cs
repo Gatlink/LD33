@@ -19,8 +19,10 @@ public class BrawlerEnemy : Enemy {
 
 	public override void Attack() 
 	{
-		if(MainCharacter.Instance.Alive)
+		if(MainCharacter.Instance.Alive && CanAttack)
 		{
+			CanAttack = false;
+			StartCoroutine(CoolWeaponDown());
 			MainCharacter.Instance.Hurt(Damage);
 		}
 	}

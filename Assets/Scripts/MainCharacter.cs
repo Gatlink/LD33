@@ -49,7 +49,7 @@ public class MainCharacter : Character
 			return;
 			
 		ProcessInput();
-		base.Update();
+		//base.Update();
 
 		var scale = transform.localScale;
 		scale.x = Target.position.x < transform.position.x ? -1 : 1;
