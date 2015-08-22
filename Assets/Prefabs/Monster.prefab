@@ -9,8 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 406110}
   - 212: {fileID: 21206202}
-  - 114: {fileID: 11442372}
   - 58: {fileID: 5830944}
+  - 50: {fileID: 5036228}
+  - 114: {fileID: 11442372}
+  - 114: {fileID: 11462452}
   m_Layer: 8
   m_Name: Monster
   m_TagString: Untagged
@@ -30,6 +32,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5036228
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137276}
+  m_Mass: 1
+  m_LinearDrag: 20
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!58 &5830944
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -54,12 +72,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaceaf22975b1474ebb0a54c6109fff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 150
-  Acceleration: 1
-  Friction: 1
+--- !u!114 &11462452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88c2acdf36b79ef4299ed866dc646ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  DistanceMinFromTarget: 80
-  DistanceMaxFromTarget: 250
+  Speed: 10000
+  DistanceMaxFromPlayer: 85
 --- !u!212 &21206202
 SpriteRenderer:
   m_ObjectHideFlags: 1

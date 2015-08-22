@@ -12,6 +12,7 @@ GameObject:
   - 61: {fileID: 6124794}
   - 50: {fileID: 5083376}
   - 114: {fileID: 11478966}
+  - 114: {fileID: 11440764}
   m_Layer: 0
   m_Name: MC
   m_TagString: Untagged
@@ -60,6 +61,24 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 36, y: 110}
+--- !u!114 &11440764
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a63b1bd106269498e5d2da001e9a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxSpeed: 600
+  Acceleration: 1
+  Friction: 1
+  Life: 50
+  Damage: 12
+  Cursor: {fileID: 0}
+  KickStrength: 2e+07
 --- !u!114 &11478966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -71,7 +90,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ab18976e0ef964db5489b119014988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cursor: {fileID: 0}
   Speed: 10000
 --- !u!212 &21280786
 SpriteRenderer:
