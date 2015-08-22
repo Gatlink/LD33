@@ -188,7 +188,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &460120640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,8 +381,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 1519354508}
   - 212: {fileID: 1519354507}
-  - 114: {fileID: 1519354510}
   - 61: {fileID: 1519354509}
+  - 50: {fileID: 1519354511}
+  - 114: {fileID: 1519354512}
   m_Layer: 0
   m_Name: MC
   m_TagString: Untagged
@@ -441,7 +442,23 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 36, y: 110}
---- !u!114 &1519354510
+--- !u!50 &1519354511
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1519354506}
+  m_Mass: 1
+  m_LinearDrag: 20
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &1519354512
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -449,17 +466,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1519354506}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5a63b1bd106269498e5d2da001e9a44, type: 3}
+  m_Script: {fileID: 11500000, guid: d7ab18976e0ef964db5489b119014988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 200
-  Acceleration: 1
-  Friction: .200000003
-  Life: 500
-  Damage: 25
-  Target: {fileID: 1778910960}
-  KickDistance: 1
-  KickStrength: 10000
+  Cursor: {fileID: 1778910960}
+  Speed: 10000
 --- !u!1 &1778910957
 GameObject:
   m_ObjectHideFlags: 0
