@@ -36,7 +36,6 @@ public class PlayerMobility : MonoBehaviour
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 64f, 1 << LayerMask.NameToLayer("Monster"));
 		if (hit.collider != null)
 		{
-			Debug.Log("PAF");
 			var monster = hit.collider.GetComponent<MonsterMobility>();
 			monster.GetKicked(direction * KickStrength);
 		}
