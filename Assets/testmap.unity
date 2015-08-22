@@ -99,6 +99,7 @@ GameObject:
   - 92: {fileID: 80432483}
   - 124: {fileID: 80432482}
   - 81: {fileID: 80432481}
+  - 114: {fileID: 80432486}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -172,6 +173,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &80432486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 80432480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba59688d96d26447a425ab92c702377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 1017047343}
 --- !u!1 &193190498
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,9 +330,17 @@ Prefab:
       propertyPath: Cursor
       value: 
       objectReference: {fileID: 1430148006}
+    - target: {fileID: 11440764, guid: 1942f9eb80226294b85a061e7fa4663f, type: 2}
+      propertyPath: Cursor
+      value: 
+      objectReference: {fileID: 1430148006}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1942f9eb80226294b85a061e7fa4663f, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1017047343 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 401620, guid: 1942f9eb80226294b85a061e7fa4663f, type: 2}
+  m_PrefabInternal: {fileID: 1017047342}
 --- !u!1001 &1430148005
 Prefab:
   m_ObjectHideFlags: 0

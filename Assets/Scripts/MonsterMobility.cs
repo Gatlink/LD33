@@ -5,7 +5,7 @@ public class MonsterMobility : MonoBehaviour
 {
 	public Transform Player;
 	public float Speed = 10000f;
-	public float DistanceMaxFromPlayer = 85f;
+	public float DistanceMinFromPlayer = 85f;
 
 	private Rigidbody2D _rigidbody;
 
@@ -17,9 +17,10 @@ public class MonsterMobility : MonoBehaviour
 	public void FixedUpdate()
 	{
 		var direction = Player.position - transform.position;
-		var distance = direction.sqrMagnitude;
+		var sqrdDist = direction.sqrMagnitude;
+		var r = sqrdDist - (DistanceMinFromPlayer * DistanceMinFromPlayer);
 		direction.Normalize();
-		_rigidbody.AddForce(direction * Speed);
+		_rigidbody.AddForce(direction * Mathf.Lerp(0, Speed, Mathf.Clamp01(r)));
 
 		var scale = transform.localScale;
 		scale.x = Player.position.x < transform.position.x ? -1 : 1;

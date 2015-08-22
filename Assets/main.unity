@@ -268,6 +268,10 @@ Prefab:
       propertyPath: Player
       value: 
       objectReference: {fileID: 104496206}
+    - target: {fileID: 11462452, guid: c615aa89fa2330e46ace32ad9097d6d3, type: 2}
+      propertyPath: DistanceMinFromPlayer
+      value: 145
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c615aa89fa2330e46ace32ad9097d6d3, type: 2}
   m_IsPrefabParent: 0
@@ -283,6 +287,7 @@ GameObject:
   - 124: {fileID: 1974269237}
   - 92: {fileID: 1974269236}
   - 81: {fileID: 1974269235}
+  - 114: {fileID: 1974269240}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -356,3 +361,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1974269240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1974269234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba59688d96d26447a425ab92c702377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 104496206}

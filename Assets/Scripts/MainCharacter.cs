@@ -58,21 +58,8 @@ public class MainCharacter : Character
 
 	private void ProcessInput() 
 	{
-		if(Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f)
-		{
-			Vector3 axis = Vector3.zero;		
-			axis.x = Input.GetAxis("Horizontal");
-			axis.y = Input.GetAxis("Vertical");
-
-			Move(axis);
-		}
-
 		if (Input.GetAxis("Fire1") != 0f)
 			Attack();
-
-		var scale = transform.localScale;
-		scale.x = Cursor.position.x < transform.position.x ? -1 : 1;
-		transform.localScale = scale;
 	}
 
 	public override void Attack() 
