@@ -12,8 +12,8 @@ public class Monster : Movable
 
 	public override void Awake()
 	{
-		m_velocity = Vector3.zero;
-		m_friction = 1f;
+		_velocity = Vector3.zero;
+		_friction = 1f;
 	}
 
 	public override void Update()
@@ -28,16 +28,16 @@ public class Monster : Movable
 
 		if (Moving && distance <= DistanceMinFromTarget)
 		{
-			m_velocity = Vector3.zero;
+			_velocity = Vector3.zero;
 			return;
 		}
 
 		if (!Moving && distance <= DistanceMaxFromTarget)
 			return;
 		
-		var velocityError = -m_velocity;
+		var velocityError = -_velocity;
 		var acc = Speed * (positionError * PositionGain + velocityError * VelocityGain);
-		m_velocity += acc * Time.deltaTime;
+		_velocity += acc * Time.deltaTime;
 
 		base.Update();
 	}
