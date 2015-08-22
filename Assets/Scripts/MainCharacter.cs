@@ -73,12 +73,12 @@ public class MainCharacter : Character
 
 	public override void Attack() 
 	{
-		Debug.Log("PAF");
 		var direction = (Target.position - transform.position).normalized;
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 64f, 0 | LayerMask.NameToLayer("Monster"));
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 64f, 1 << LayerMask.NameToLayer("Monster"));
 		if (hit.collider != null)
 		{
-			var monster = GetComponent<Collider>().GetComponent<Monster>();
+			Debug.Log("PAF");
+			var monster = hit.collider.GetComponent<Monster>();
 			monster.GetKicked(direction, KickStrength);
 		}
 	}

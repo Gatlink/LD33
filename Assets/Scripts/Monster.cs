@@ -15,11 +15,6 @@ public class Monster : Movable
 
 	public override void Update()
 	{
-		// Turn toward the player
-		var scale = transform.localScale;
-		scale.x = Player.position.x < transform.position.x ? -1 : 1;
-		transform.localScale = scale;
-
 		var toTarget = Player.position - transform.position;
 		var closeEnough = (toTarget.sqrMagnitude <= DistanceMinFromTarget * DistanceMinFromTarget);
 		if(closeEnough)
@@ -37,10 +32,15 @@ public class Monster : Movable
 		}
 
 		base.Update();
+
+		// Turn toward the player
+		var scale = transform.localScale;
+		scale.x = Player.position.x < transform.position.x ? -1 : 1;
+		transform.localScale = scale;
 	}
 
-	public void GetKicked(Vector2 direction, float strength)
+	public void GetKicked(Vector3 direction, float strength)
 	{
-		
+		Debug.Log("Ouch!");
 	}
 }
