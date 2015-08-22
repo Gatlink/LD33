@@ -1,38 +1,38 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Movable : MonoBehaviour {
-	protected Vector3 m_velocity;
-	protected float m_friction;
+public class Movable : MonoBehaviour 
+{
+	protected Vector3 _velocity;
+	protected float _friction;
 
 	public bool Moving 
 	{
 		get 
 		{
-			return m_velocity.sqrMagnitude > 0f;
+			return _velocity.sqrMagnitude > 0f;
 		}
 	}
 
 	public virtual void Awake() 
 	{
-		m_velocity = Vector3.zero;
-		m_friction = 0f;
+		_velocity = Vector3.zero;
+		_friction = 0f;
 	}
 
 	public virtual void Update()
 	{
 		if(Moving) 
 		{
-			transform.Translate(m_velocity * Time.deltaTime);
-			m_velocity *= m_friction;
+			transform.Translate(_velocity * Time.deltaTime);
+			_velocity *= _friction;
 		}
 	}
 	
 	public void Move(Vector3 axis, float thrust, float friction) 
 	{
 		axis.Normalize();
-		m_velocity = axis * thrust;
-		m_friction = 1f - Mathf.Clamp01(friction);
+		_velocity = axis * thrust;
+		_friction = 1f - Mathf.Clamp01(friction);
 	}
-
 }

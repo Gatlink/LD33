@@ -7,7 +7,7 @@ public class MainCharacter : Movable
 	[Range(0f,1f)]
 	public float Friction = 1f;
 
-	public override void Update () 
+	public override void Update ()
 	{
 		ProcessInput();
 		base.Update();
@@ -17,35 +17,47 @@ public class MainCharacter : Movable
 	{
 		Vector3 axis = Vector3.zero;
 		bool move = false;
+		float speed = Speed;
 
-		if(Input.GetKey(KeyCode.UpArrow)) 
+		if(Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f)
 		{
-			axis += Vector3.up;
+			Debug.Log("meh");
 			move = true;
+			axis.x = Input.GetAxis("Horizontal");
+			axis.y = Input.GetAxis("Vertical");
+			speed *= Mathf.Max(Mathf.Abs(axis.x), Mathf.Abs(axis.y));
+			Debug.Log(speed);
 		}
-
-		if(Input.GetKey(KeyCode.DownArrow)) 
+		else 
 		{
-			axis += Vector3.down;
-			move = true;
-		}
+			if(Input.GetKey(KeyCode.UpArrow)) 
+			{
+				axis += Vector3.up;
+				move = true;
+			}
 
-		if(Input.GetKey(KeyCode.LeftArrow)) 
-		{
-			axis += Vector3.left;
-			move = true;
-		}
+			if(Input.GetKey(KeyCode.DownArrow)) 
+			{
+				axis += Vector3.down;
+				move = true;
+			}
 
-		if(Input.GetKey(KeyCode.RightArrow)) 
-		{
-			axis += Vector3.right;
-			move = true;
+			if(Input.GetKey(KeyCode.LeftArrow)) 
+			{
+				axis += Vector3.left;
+				move = true;
+			}
+
+			if(Input.GetKey(KeyCode.RightArrow)) 
+			{
+				axis += Vector3.right;
+				move = true;
+			}
 		}
 
 		if(move)
 		{
-			axis.Normalize();
-			Move(axis, Speed, Friction);
+			Move(axis, speed, Friction);
 		}
 	}
 }
