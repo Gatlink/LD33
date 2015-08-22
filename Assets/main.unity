@@ -331,6 +331,10 @@ Prefab:
       propertyPath: Cursor
       value: 
       objectReference: {fileID: 1778910960}
+    - target: {fileID: 11478966, guid: 1942f9eb80226294b85a061e7fa4663f, type: 2}
+      propertyPath: KickStrength
+      value: 2e+07
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1942f9eb80226294b85a061e7fa4663f, type: 2}
   m_IsPrefabParent: 0
@@ -400,9 +404,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88c2acdf36b79ef4299ed866dc646ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 1519354508}
   Speed: 10000
-  DistanceMaxFromPlayer: 85
+  DistanceMinFromPlayer: 85
 --- !u!50 &916753650
 Rigidbody2D:
   serializedVersion: 2
