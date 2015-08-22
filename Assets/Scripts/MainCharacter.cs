@@ -1,63 +1,72 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MainCharacter : Movable
+public class MainCharacter : Character
 {
-	public float Speed = 10f;
-	[Range(0f,1f)]
-	public float Friction = 1f;
+	private static MainCharacter m_instance;
+    public static MainCharacter Instance
+    {
+        get
+        {
+
+#if UNITY_EDITOR
+            if(m_instance == null)
+                m_instance = GameObject.FindObjectOfType<MainCharacter>();
+#endif
+
+            return m_instance;
+        }
+    }
+
+    public override void Awake()
+    {
+        if(m_instance == null)
+        {
+            m_instance = this as MainCharacter;
+        }
+        else
+        {
+            Debug.Log("Cannot have two instances of " + typeof(MainCharacter).ToString() + " : " + m_instance);
+            Destroy(this.gameObject);
+        }
+
+        base.Awake();
+    }
+
+    public static void Destroy()
+    {
+        Destroy(Instance.gameObject);
+        m_instance = null;
+    }
 
 	public override void Update ()
 	{
+		if(Dead)
+			return;
+			
 		ProcessInput();
 		base.Update();
 	}
 
 	private void ProcessInput() 
 	{
-		Vector3 axis = Vector3.zero;
-		bool move = false;
-		float speed = Speed;
-
 		if(Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f)
 		{
-			Debug.Log("meh");
-			move = true;
+			Vector3 axis = Vector3.zero;		
 			axis.x = Input.GetAxis("Horizontal");
-			axis.y = Input.GetAxis("Vertical");
-			speed *= Mathf.Max(Mathf.Abs(axis.x), Mathf.Abs(axis.y));
-			Debug.Log(speed);
+			axis.y = Input.GetAxis("Vertical");			
+
+			Move(axis);
 		}
-		else 
-		{
-			if(Input.GetKey(KeyCode.UpArrow)) 
-			{
-				axis += Vector3.up;
-				move = true;
-			}
+	}
 
-			if(Input.GetKey(KeyCode.DownArrow)) 
-			{
-				axis += Vector3.down;
-				move = true;
-			}
-
-			if(Input.GetKey(KeyCode.LeftArrow)) 
-			{
-				axis += Vector3.left;
-				move = true;
-			}
-
-			if(Input.GetKey(KeyCode.RightArrow)) 
-			{
-				axis += Vector3.right;
-				move = true;
-			}
-		}
-
-		if(move)
-		{
-			Move(axis, speed, Friction);
-		}
+	public override void Attack() 
+	{
+		Debug.Log("PAF");
+	}
+	
+	public override void Die()
+	{
+		GetComponent<SpriteRenderer>().color = Color.red;
 	}
 }
