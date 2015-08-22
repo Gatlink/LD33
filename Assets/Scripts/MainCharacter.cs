@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MainCharacter : Movable {
+public class MainCharacter : Movable
+{
 	public float Speed = 10f;
 	[Range(0f,1f)]
 	public float Friction = 1f;
 
 	public override void Update () 
 	{
-		base.Update();
 		ProcessInput();
+		base.Update();
 	}
 
 	private void ProcessInput() 
