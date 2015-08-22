@@ -4,30 +4,33 @@ using System.Collections;
 public class MainCharacter : Character
 {
 	public Transform Target;
-	private static MainCharacter m_instance;
+	public float KickDistance = 1f;
+	public float KickStrength = 5f;
+
+	private static MainCharacter _instance;
     public static MainCharacter Instance
     {
         get
         {
 
 #if UNITY_EDITOR
-            if(m_instance == null)
-                m_instance = GameObject.FindObjectOfType<MainCharacter>();
+            if(_instance == null)
+                _instance = GameObject.FindObjectOfType<MainCharacter>();
 #endif
 
-            return m_instance;
+            return _instance;
         }
     }
 
     public override void Awake()
     {
-        if(m_instance == null)
+        if(_instance == null)
         {
-            m_instance = this as MainCharacter;
+            _instance = this as MainCharacter;
         }
         else
         {
-            Debug.Log("Cannot have two instances of " + typeof(MainCharacter).ToString() + " : " + m_instance);
+            Debug.Log("Cannot have two instances of " + typeof(MainCharacter).ToString() + " : " + _instance);
             Destroy(this.gameObject);
         }
 
@@ -37,7 +40,7 @@ public class MainCharacter : Character
     public static void Destroy()
     {
         Destroy(Instance.gameObject);
-        m_instance = null;
+        _instance = null;
     }
 
 	public override void Update ()
@@ -63,11 +66,21 @@ public class MainCharacter : Character
 
 			Move(axis);
 		}
+
+		if (Input.GetAxis("Fire1") != 0f)
+			Attack();
 	}
 
 	public override void Attack() 
 	{
 		Debug.Log("PAF");
+		var direction = (Target.position - transform.position).normalized;
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 64f, 0 | LayerMask.NameToLayer("Monster"));
+		if (hit.collider != null)
+		{
+			var monster = GetComponent<Collider>().GetComponent<Monster>();
+			monster.GetKicked(direction, KickStrength);
+		}
 	}
 	
 	public override void Die()

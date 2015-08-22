@@ -38,4 +38,9 @@ public class Monster : Movable
 
 		base.Update();
 	}
+
+	public void GetKicked(Vector2 direction, float strength)
+	{
+		
+	}
 }
