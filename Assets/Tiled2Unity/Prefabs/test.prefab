@@ -160,34 +160,34 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Points:
     m_Paths:
-    - - {x: 1224, y: -61}
-      - {x: 1224, y: -59}
-      - {x: 1217, y: -59}
-      - {x: 1217, y: 0}
+    - - {x: 1352, y: -61}
+      - {x: 1352, y: -59}
+      - {x: 1345, y: -59}
+      - {x: 1345, y: 0}
       - {x: 62, y: 0}
       - {x: 62, y: -59}
       - {x: 55, y: -59}
       - {x: 55, y: -62}
       - {x: 0, y: -62}
-      - {x: 0, y: -1090}
-      - {x: 62, y: -1090}
-      - {x: 62, y: -1151}
-      - {x: -1, y: -1151}
-      - {x: -1, y: -1211}
-      - {x: -8, y: -1211}
-      - {x: -8, y: -1280}
-      - {x: 1288, y: -1280}
-      - {x: 1288, y: -1211}
-      - {x: 1281, y: -1211}
-      - {x: 1281, y: -1151}
-      - {x: 1217, y: -1151}
-      - {x: 1217, y: -1089}
-      - {x: 1279, y: -1089}
-      - {x: 1279, y: -61}
-    - - {x: 1215, y: -192}
-      - {x: 1215, y: -1088}
-      - {x: 63, y: -1088}
-      - {x: 63, y: -192}
+      - {x: 0, y: -962}
+      - {x: 62, y: -962}
+      - {x: 62, y: -1023}
+      - {x: -1, y: -1023}
+      - {x: -1, y: -1083}
+      - {x: -8, y: -1083}
+      - {x: -8, y: -1152}
+      - {x: 1416, y: -1152}
+      - {x: 1416, y: -1083}
+      - {x: 1409, y: -1083}
+      - {x: 1409, y: -1023}
+      - {x: 1345, y: -1023}
+      - {x: 1345, y: -961}
+      - {x: 1407, y: -961}
+      - {x: 1407, y: -61}
+    - - {x: 1343, y: -128}
+      - {x: 1343, y: -960}
+      - {x: 63, y: -960}
+      - {x: 63, y: -128}
 --- !u!114 &11401976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -210,13 +210,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0619e460a775cc458d37cb4a214a189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumTilesWide: 20
-  NumTilesHigh: 20
+  NumTilesWide: 22
+  NumTilesHigh: 18
   TileWidth: 64
   TileHeight: 64
   ExportScale: 1
-  MapWidthInPixels: 1280
-  MapHeightInPixels: 1280
+  MapWidthInPixels: 1408
+  MapHeightInPixels: 1152
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

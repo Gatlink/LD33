@@ -10,9 +10,6 @@ public abstract class Enemy : Character
 	public float AttackCooldown = 1f;
 
 	[Space(5)]
-	public int MinVelocityToGetHurt = 200;	
-
-	[Space(5)]
 	[Range(0f,5f)]
 	public float MinRandomDuration = 1f;
 	[Range(0.5f,5.5f)]
@@ -93,16 +90,6 @@ public abstract class Enemy : Character
 			yield return 0;
 		}
 		CanAttack = true;
-	}
-
-	public void OnCollisionEnter2D(Collision2D col)
-	{
-		if (col.gameObject.tag == "Monster")
-		{
-			var damage = (int) col.rigidbody.velocity.magnitude;
-			if (damage >= MinVelocityToGetHurt)
-				Hurt(damage);
-		}
 	}
 
 	public override void Die()

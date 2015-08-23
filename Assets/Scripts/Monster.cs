@@ -14,15 +14,18 @@ public class Monster : Mobile
 	[Space(5)]
 	public Transform Player;
 	public float DistanceMinFromPlayer = 128f;
-
+	public float KickedDrag = 5f;
+	
 	private State _currentState = State.IDLE;
 	private Animator _anim;
+	private float _drag;
 
 	public override void Start()
 	{
 		base.Start();
 		Physics2D.IgnoreCollision(Player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 		_anim = GetComponent<Animator>();
+		_drag = _rigidbody.drag;
 	}
 
 	public virtual void FixedUpdate()
@@ -44,19 +47,19 @@ public class Monster : Mobile
 				Move(direction);				
 			}
 			_currentState = tooFar ? State.FOLLOWING : State.IDLE;
+
+			// Turn toward the player
+			var scale = transform.localScale;
+			scale.x = Player.position.x < transform.position.x ? -1f : 1f;
+			transform.localScale = scale;
 		}
 		else if (_currentState == State.SHOT && _rigidbody.velocity == Vector2.zero) 
 		{
 			_currentState = State.IDLE;
-			_anim.SetBool("Kicked", false);
+			_rigidbody.drag = _drag;
 		}
 
-		// Turn toward the player
-		var scale = transform.localScale;
-		scale.x = Player.position.x < transform.position.x ? -1f : 1f;
-		transform.localScale = scale;
-
-		_anim.SetFloat("Speed", speed);
+		_anim.SetBool("Stopped", _rigidbody.velocity == Vector2.zero);
 
 		if(_rigidbody.IsSleeping())
 		{
@@ -68,13 +71,20 @@ public class Monster : Mobile
 	{
 		_rigidbody.AddForce(force);
 		_currentState = State.SHOT;
-		_anim.SetBool("Kicked", true);
+		_anim.SetTrigger("Kicked");
+		_rigidbody.drag = KickedDrag;
+
+		var scale = transform.localScale;
+		scale.x = -scale.x;
+		transform.localScale = scale;
 	}
 
 	public void OnCollisionEnter2D(Collision2D collision)
 	{
-		if(collision.collider.tag == "Ennemy")
+		if(_currentState == State.SHOT && collision.collider.tag == "Ennemy")
 		{
+			var damage = (int) _rigidbody.velocity.magnitude;
+			collision.collider.GetComponent<Enemy>().Hurt(damage);
 			_rigidbody.velocity = Vector2.zero;
 		}
 	}
