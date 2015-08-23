@@ -46,7 +46,10 @@ public class Monster : Mobile
 			_currentState = tooFar ? State.FOLLOWING : State.IDLE;
 		}
 		else if (_currentState == State.SHOT && _rigidbody.velocity == Vector2.zero) 
+		{
 			_currentState = State.IDLE;
+			_anim.SetBool("Kicked", false);
+		}
 
 		// Turn toward the player
 		var scale = transform.localScale;
@@ -65,6 +68,7 @@ public class Monster : Mobile
 	{
 		_rigidbody.AddForce(force);
 		_currentState = State.SHOT;
+		_anim.SetBool("Kicked", true);
 	}
 
 	public void OnCollisionEnter2D(Collision2D collision)

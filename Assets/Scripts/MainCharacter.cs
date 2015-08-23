@@ -49,9 +49,8 @@ public class MainCharacter : Character
     {
     	base.Start();
     	_feet = transform.GetChild(0);
-    	var monsterObj = GameObject.FindGameObjectsWithTag("Monster")[0];
-    	_monster = monsterObj.GetComponent<Monster>();
-    	_monsterCollider = monsterObj.GetComponent<Collider2D>();
+    	_monster = GameObject.FindObjectsOfType<Monster>()[0];
+    	_monsterCollider = _monster.GetComponent<Collider2D>();
     	_anim = GetComponent<Animator>();
     }
 
