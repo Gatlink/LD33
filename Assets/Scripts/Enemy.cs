@@ -40,37 +40,30 @@ public abstract class Enemy : Character
 		if(distFromHero <= AcquisitionRange * AcquisitionRange || Tracking) 
 		{
 			Acquire();
-			if(_randomMovement != null)
-			{
-				StopCoroutine(_randomMovement);
-				_randomMovement = null;
-			}
+			InterruptRandomMovement();
 		}
-		else if(!Moving)
+		else if(_randomMovement == null)
 		{
-			MoveRandomly();
+			_randomMovement = StartCoroutine(MoveRandomly());
 		}
 	}
 
 	protected abstract void Acquire();
 
-	protected void MoveRandomly()
+	protected IEnumerator MoveRandomly()
 	{
 		float duration = Random.Range(MinRandomDelay, MaxRandomDelay);
 		Vector3 dir = Random.insideUnitCircle;
 		dir.Normalize();
-		_randomMovement = StartCoroutine(KeepMoving(duration, dir));
-	}
-
-	protected IEnumerator KeepMoving(float duration, Vector3 direction) 
-	{
+		
 		float start = Time.time;
 		float elapsed = 0f;
 		while(elapsed < duration) {
 			elapsed = Time.time - start;
-			Move(direction);
+			Move(dir);
 			yield return 0;
 		}
+		_randomMovement = null;
 	}
 
 	protected IEnumerator CoolWeaponDown() 
@@ -97,5 +90,15 @@ public abstract class Enemy : Character
 	public override void Die()
 	{
 		GetComponent<SpriteRenderer>().color = Color.red;
+		InterruptRandomMovement();
+	}
+
+	protected void InterruptRandomMovement()
+	{
+		if(_randomMovement != null)
+		{
+			StopCoroutine(_randomMovement);
+			_randomMovement = null;
+		}
 	}
 }
