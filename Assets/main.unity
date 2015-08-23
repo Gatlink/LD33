@@ -210,7 +210,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 138202640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -534}
+  m_LocalPosition: {x: 0, y: 1, z: -100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -270,6 +270,18 @@ Prefab:
       propertyPath: Cursor
       value: 
       objectReference: {fileID: 1778910960}
+    - target: {fileID: 405664, guid: 1942f9eb80226294b85a061e7fa4663f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -32
+      objectReference: {fileID: 0}
+    - target: {fileID: 405664, guid: 1942f9eb80226294b85a061e7fa4663f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124794, guid: 1942f9eb80226294b85a061e7fa4663f, type: 2}
+      propertyPath: m_Size.y
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11414076, guid: 1942f9eb80226294b85a061e7fa4663f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 1942f9eb80226294b85a061e7fa4663f, type: 2}
@@ -329,6 +341,10 @@ Prefab:
       propertyPath: m_TagString
       value: Monster
       objectReference: {fileID: 0}
+    - target: {fileID: 5830944, guid: c615aa89fa2330e46ace32ad9097d6d3, type: 2}
+      propertyPath: m_Radius
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11442372, guid: c615aa89fa2330e46ace32ad9097d6d3, type: 2}
     - {fileID: 11462452, guid: c615aa89fa2330e46ace32ad9097d6d3, type: 2}
@@ -368,6 +384,23 @@ MonoBehaviour:
   Speed: 10000
   Player: {fileID: 1519354508}
   DistanceMinFromPlayer: 125
+--- !u!1 &921625938 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 140856, guid: 1942f9eb80226294b85a061e7fa4663f, type: 2}
+  m_PrefabInternal: {fileID: 462922860}
+--- !u!58 &921625939
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 921625938}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 50
 --- !u!1001 &1372347156
 Prefab:
   m_ObjectHideFlags: 0
@@ -377,11 +410,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 440534, guid: 7be3a57c1a3e12a4e90fdab519a325a4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 244.899994
+      value: 494
       objectReference: {fileID: 0}
     - target: {fileID: 440534, guid: 7be3a57c1a3e12a4e90fdab519a325a4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 213.699997
+      value: 405
       objectReference: {fileID: 0}
     - target: {fileID: 440534, guid: 7be3a57c1a3e12a4e90fdab519a325a4, type: 2}
       propertyPath: m_LocalPosition.z
@@ -427,7 +460,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430818, guid: 80040f2b282946d4d8e0695e1a2666be, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 430818, guid: 80040f2b282946d4d8e0695e1a2666be, type: 2}
       propertyPath: m_LocalRotation.x

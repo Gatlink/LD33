@@ -11,6 +11,8 @@ public class MainCharacter : Character
 	public float KickStrength = 5f;
 
 	private Transform _feet;
+	private Monster _monster;
+	private Collider2D _monsterCollider;
 
 #region singleton
 	private static MainCharacter _instance;
@@ -46,6 +48,9 @@ public class MainCharacter : Character
     {
     	base.Start();
     	_feet = transform.GetChild(0);
+    	var monsterObj = GameObject.FindGameObjectsWithTag("Monster")[0];
+    	_monster = monsterObj.GetComponent<Monster>();
+    	_monsterCollider = monsterObj.GetComponent<Collider2D>();
     }
 
     public static void Destroy()
@@ -84,16 +89,20 @@ public class MainCharacter : Character
 	public override void Attack() 
 	{
 		var direction = (Cursor.position - _feet.position).normalized;
-		RaycastHit2D hit = Physics2D.Raycast(_feet.position, direction, 64f, 1 << LayerMask.NameToLayer("Monster"));
-		if (hit.collider != null)
+		if (IsFacingMonster() && _feet.GetComponent<Collider2D>().IsTouching(_monsterCollider))
 		{
-			var monster = hit.collider.GetComponent<Monster>();
-			monster.GetKicked(direction * KickStrength);
+			_monster.GetKicked(direction * KickStrength);
 		}
 	}
 	
 	public override void Die()
 	{
 		GetComponent<SpriteRenderer>().color = Color.red;
+	}
+
+	private bool IsFacingMonster()
+	{
+		return (_monster.transform.position.x < transform.position.x && transform.localScale.x == -1)
+				|| (_monster.transform.position.x > transform.position.x && transform.localScale.x == 1);
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Tiled2Unity;
 
 public class Monster : Mobile
 {
@@ -15,6 +16,12 @@ public class Monster : Mobile
 	public float DistanceMinFromPlayer = 128f;
 
 	private State _currentState = State.IDLE;
+
+	public override void Start()
+	{
+		base.Start();
+		Physics2D.IgnoreCollision(Player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+	}
 
 	public virtual void FixedUpdate()
 	{
@@ -34,6 +41,8 @@ public class Monster : Mobile
 			}
 			_currentState = tooFar ? State.FOLLOWING : State.IDLE;
 		}
+		else if (_currentState == State.SHOT && _rigidbody.velocity == Vector2.zero) 
+			_currentState = State.IDLE;
 
 		// Turn toward the player
 		var scale = transform.localScale;
@@ -49,10 +58,9 @@ public class Monster : Mobile
 
 	public void OnCollisionEnter2D(Collision2D collision)
 	{
-		if(collision.collider.tag == "Player")
-			return;
-
 		if(collision.collider.tag == "Ennemy")
-			_rigidbody.velocity = Vector3.zero;
+		{
+			_rigidbody.velocity = Vector2.zero;
+		}
 	}
 }

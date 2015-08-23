@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Tiled2Unity;
 
 public class Mobile : MonoBehaviour 
 {
@@ -7,6 +8,8 @@ public class Mobile : MonoBehaviour
 	public float Speed = 1000f;
 
 	protected Rigidbody2D _rigidbody;
+
+	private Transform _map;
 
 	public bool Moving 
 	{
@@ -19,8 +22,17 @@ public class Mobile : MonoBehaviour
 	public virtual void Start()
 	{
 		_rigidbody = GetComponent<Rigidbody2D>();
+		_map = GameObject.FindObjectOfType<TiledMap>().transform;
 	}
 	
+	public virtual void Update()
+	{
+		var position = transform.position;
+		var r = (position.y + _map.position.y) / (_map.position.y * 2);
+		position.z = Mathf.Lerp(-100, 100, r);
+		transform.position = position;
+	}
+
 	public void Move(Vector3 axisRatio) 
 	{
 		_rigidbody.AddForce(transform.right * Speed * axisRatio.x);

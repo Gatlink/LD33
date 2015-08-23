@@ -4,8 +4,8 @@ using System.Collections;
 public abstract class Enemy : Character 
 {
 	public float AcquisitionRange = 150f;
-
 	public float AttackCooldown = 1f;
+	public int MinVelocityToGetHurt = 200;
 
 	[Space(5)]
 	[Range(0f,5f)]
@@ -31,7 +31,7 @@ public abstract class Enemy : Character
 		_randomMovement = null;
 	}
 
-	public virtual void Update()
+	public override void Update()
 	{
 		if(Dead)
 			return;
@@ -89,8 +89,8 @@ public abstract class Enemy : Character
 		if (col.gameObject.tag == "Monster")
 		{
 			var damage = (int) col.rigidbody.velocity.magnitude;
-			Debug.Log(damage);
-			Hurt(damage);
+			if (damage >= MinVelocityToGetHurt)
+				Hurt(damage);
 		}
 	}
 
