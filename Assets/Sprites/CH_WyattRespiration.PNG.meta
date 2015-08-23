@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 13689914f5d1eba4caeeb998f9ad401b
-timeCreated: 1440314605
+timeCreated: 1440328852
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -58,8 +58,8 @@ TextureImporter:
         y: 0
         width: 59
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CH_WyattRespiration_1
       rect:
@@ -68,8 +68,8 @@ TextureImporter:
         y: 0
         width: 59
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

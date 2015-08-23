@@ -13,6 +13,7 @@ public class MainCharacter : Character
 	private Transform _feet;
 	private Monster _monster;
 	private Collider2D _monsterCollider;
+	private Animator _anim;
 
 #region singleton
 	private static MainCharacter _instance;
@@ -51,6 +52,7 @@ public class MainCharacter : Character
     	var monsterObj = GameObject.FindGameObjectsWithTag("Monster")[0];
     	_monster = monsterObj.GetComponent<Monster>();
     	_monsterCollider = monsterObj.GetComponent<Collider2D>();
+    	_anim = GetComponent<Animator>();
     }
 
     public static void Destroy()
@@ -63,7 +65,7 @@ public class MainCharacter : Character
 	{
 		if(Dead)
 			return;
-			
+
 		ProcessInput();
 
 		var scale = transform.localScale;
@@ -73,14 +75,14 @@ public class MainCharacter : Character
 
 	private void ProcessInput() 
 	{
-		if(Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f)
-		{
-			Vector3 axis = Vector3.zero;		
-			axis.x = Input.GetAxis("Horizontal");
-			axis.y = Input.GetAxis("Vertical");
+		Vector3 axis = Vector3.zero;		
+		axis.x = Input.GetAxis("Horizontal");
+		axis.y = Input.GetAxis("Vertical");
 
-			Move(axis);
-		}
+		var speed = axis.magnitude;
+		Debug.Log(speed);
+		_anim.SetFloat("Speed", speed);
+		Move(axis);
 
 		if (Input.GetAxis("Fire1") != 0f)
 			Attack();

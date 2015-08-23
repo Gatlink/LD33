@@ -1,9 +1,17 @@
 fileFormatVersion: 2
 guid: 2396079b29f3cf64480aecc8475f4b27
-timeCreated: 1440325352
+timeCreated: 1440328902
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: CH_WyattRun_0
+    21300002: CH_WyattRun_1
+    21300004: CH_WyattRun_2
+    21300006: CH_WyattRun_3
+    21300008: CH_WyattRun_4
+    21300010: CH_WyattRun_5
+    21300012: CH_WyattRun_6
+    21300014: CH_WyattRun_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -43,12 +51,92 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: CH_WyattRun_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 95
+        height: 132
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CH_WyattRun_1
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 0
+        width: 95
+        height: 132
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CH_WyattRun_2
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 0
+        width: 95
+        height: 132
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CH_WyattRun_3
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 0
+        width: 95
+        height: 132
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CH_WyattRun_4
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 0
+        width: 95
+        height: 132
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CH_WyattRun_5
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 0
+        width: 95
+        height: 132
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CH_WyattRun_6
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 0
+        width: 95
+        height: 132
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CH_WyattRun_7
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 0
+        width: 95
+        height: 132
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

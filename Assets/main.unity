@@ -272,7 +272,7 @@ Prefab:
       objectReference: {fileID: 1778910960}
     - target: {fileID: 405664, guid: 1942f9eb80226294b85a061e7fa4663f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -32
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 405664, guid: 1942f9eb80226294b85a061e7fa4663f, type: 2}
       propertyPath: m_LocalPosition.x
@@ -281,6 +281,10 @@ Prefab:
     - target: {fileID: 6124794, guid: 1942f9eb80226294b85a061e7fa4663f, type: 2}
       propertyPath: m_Size.y
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124794, guid: 1942f9eb80226294b85a061e7fa4663f, type: 2}
+      propertyPath: m_Offset.y
+      value: 70
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11414076, guid: 1942f9eb80226294b85a061e7fa4663f, type: 2}
@@ -295,11 +299,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 406110, guid: c615aa89fa2330e46ace32ad9097d6d3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -42.2000008
+      value: -65
       objectReference: {fileID: 0}
     - target: {fileID: 406110, guid: c615aa89fa2330e46ace32ad9097d6d3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -20.8999996
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 406110, guid: c615aa89fa2330e46ace32ad9097d6d3, type: 2}
       propertyPath: m_LocalPosition.z
@@ -345,6 +349,10 @@ Prefab:
       propertyPath: m_Radius
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 5830944, guid: c615aa89fa2330e46ace32ad9097d6d3, type: 2}
+      propertyPath: m_Offset.y
+      value: 35
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11442372, guid: c615aa89fa2330e46ace32ad9097d6d3, type: 2}
     - {fileID: 11462452, guid: c615aa89fa2330e46ace32ad9097d6d3, type: 2}
@@ -388,7 +396,7 @@ MonoBehaviour:
 GameObject:
   m_PrefabParentObject: {fileID: 140856, guid: 1942f9eb80226294b85a061e7fa4663f, type: 2}
   m_PrefabInternal: {fileID: 462922860}
---- !u!58 &921625939
+--- !u!58 &921625940
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
