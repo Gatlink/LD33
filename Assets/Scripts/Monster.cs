@@ -44,17 +44,17 @@ public class Monster : Mobile
 				Move(direction);				
 			}
 			_currentState = tooFar ? State.FOLLOWING : State.IDLE;
+
+			// Turn toward the player
+			var scale = transform.localScale;
+			scale.x = Player.position.x < transform.position.x ? -1f : 1f;
+			transform.localScale = scale;
 		}
 		else if (_currentState == State.SHOT && _rigidbody.velocity == Vector2.zero) 
 		{
 			_currentState = State.IDLE;
 			_anim.SetBool("Kicked", false);
 		}
-
-		// Turn toward the player
-		var scale = transform.localScale;
-		scale.x = Player.position.x < transform.position.x ? -1f : 1f;
-		transform.localScale = scale;
 
 		_anim.SetFloat("Speed", speed);
 
@@ -69,6 +69,10 @@ public class Monster : Mobile
 		_rigidbody.AddForce(force);
 		_currentState = State.SHOT;
 		_anim.SetBool("Kicked", true);
+
+		var scale = transform.localScale;
+		scale.x = -scale.x;
+		transform.localScale = scale;
 	}
 
 	public void OnCollisionEnter2D(Collision2D collision)
@@ -76,6 +80,7 @@ public class Monster : Mobile
 		if(collision.collider.tag == "Ennemy")
 		{
 			_rigidbody.velocity = Vector2.zero;
+			_anim.SetBool("Kicked", false);
 		}
 	}
 }

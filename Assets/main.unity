@@ -312,6 +312,10 @@ Prefab:
       propertyPath: Cursor
       value: 
       objectReference: {fileID: 1778910960}
+    - target: {fileID: 11451966, guid: 1942f9eb80226294b85a061e7fa4663f, type: 2}
+      propertyPath: KickStrength
+      value: 2e+06
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1942f9eb80226294b85a061e7fa4663f, type: 2}
   m_IsPrefabParent: 0
@@ -352,7 +356,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 406110, guid: c615aa89fa2330e46ace32ad9097d6d3, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11442372, guid: c615aa89fa2330e46ace32ad9097d6d3, type: 2}
       propertyPath: Player
