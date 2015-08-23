@@ -32,6 +32,11 @@
     <object id="0" x="-1.63636" y="-0.0909091" width="67.2727" height="63.9091"/>
    </objectgroup>
   </tile>
+  <tile id="32">
+   <objectgroup draworder="index">
+    <object id="0" x="-8.125" y="-4.25" width="80.25" height="68.25"/>
+   </objectgroup>
+  </tile>
  </tileset>
  <layer name="Tile Layer 1" width="20" height="20">
   <data encoding="csv">
