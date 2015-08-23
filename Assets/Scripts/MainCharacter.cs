@@ -80,7 +80,6 @@ public class MainCharacter : Character
 		axis.y = Input.GetAxis("Vertical");
 
 		var speed = axis.magnitude;
-		Debug.Log(speed);
 		_anim.SetFloat("Speed", speed);
 		Move(axis);
 

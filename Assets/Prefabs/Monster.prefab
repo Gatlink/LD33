@@ -8,14 +8,14 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 406110}
-  - 212: {fileID: 21206202}
   - 58: {fileID: 5830944}
   - 50: {fileID: 5036228}
   - 114: {fileID: 11442372}
-  - 114: {fileID: 11462452}
+  - 212: {fileID: 21276444}
+  - 95: {fileID: 9588064}
   m_Layer: 8
   m_Name: Monster
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -42.2000008, y: -20.8999996, z: -10}
+  m_LocalPosition: {x: -83, y: 13, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -39,7 +39,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137276}
-  m_Mass: 1
+  m_Mass: .100000001
   m_LinearDrag: 20
   m_AngularDrag: .0500000007
   m_GravityScale: 0
@@ -55,12 +55,29 @@ CircleCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137276}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c338ca926823501408eff6e7ba9849ac, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: -2, y: 2}
   serializedVersion: 2
   m_Radius: 20
+--- !u!95 &9588064
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137276}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1df7b74c8b8d2eb4c84d636e9e041569, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11442372
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -72,21 +89,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaceaf22975b1474ebb0a54c6109fff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11462452
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 137276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88c2acdf36b79ef4299ed866dc646ba7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  Speed: 1000
   Player: {fileID: 0}
-  Speed: 10000
-  DistanceMaxFromPlayer: 85
---- !u!212 &21206202
+  DistanceMinFromPlayer: 128
+--- !u!212 &21276444
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
