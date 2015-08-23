@@ -1,12 +1,13 @@
 fileFormatVersion: 2
 guid: a1af1ef062640a04280e96c04f79f343
-timeCreated: 1440332037
+timeCreated: 1440334602
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: CH_EarlRun_0
     21300002: CH_EarlRun_1
     21300004: CH_EarlRun_2
+    21300006: CH_EarlRun_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -57,30 +58,40 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 62
+        width: 60
         height: 62
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CH_EarlRun_1
       rect:
         serializedVersion: 2
-        x: 62
+        x: 60
         y: 0
-        width: 62
+        width: 60
         height: 62
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CH_EarlRun_2
       rect:
         serializedVersion: 2
-        x: 124
+        x: 120
         y: 0
-        width: 62
+        width: 60
         height: 62
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CH_EarlRun_3
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 60
+        height: 62
+      alignment: 7
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
