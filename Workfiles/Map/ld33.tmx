@@ -77,6 +77,11 @@
     <object id="0" x="0" y="-12.6667" width="63.3333" height="92.3333"/>
    </objectgroup>
   </tile>
+  <tile id="32">
+   <objectgroup draworder="index">
+    <object id="0" x="-7.66667" y="-5.66667" width="81.6667" height="69.6667"/>
+   </objectgroup>
+  </tile>
   <tile id="40">
    <objectgroup draworder="index">
     <object id="0" x="0" y="0" width="64.3333" height="63.6667"/>
