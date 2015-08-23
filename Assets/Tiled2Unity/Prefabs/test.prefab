@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 430818}
   - 114: {fileID: 11420414}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 33: {fileID: 3387036}
   - 23: {fileID: 2392434}
   - 114: {fileID: 11401976}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: mesh_[00]_[00]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,9 +43,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 434082}
   - 60: {fileID: 6016800}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collision
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440742}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Tile_Layer_1_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103312}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -640, y: 640, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 440742}
@@ -202,13 +202,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0619e460a775cc458d37cb4a214a189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumTilesWide: 20
-  NumTilesHigh: 20
-  TileWidth: 64
-  TileHeight: 64
+  NumTilesWide: 0
+  NumTilesHigh: 0
+  TileWidth: 0
+  TileHeight: 0
   ExportScale: 1
-  MapWidthInPixels: 1280
-  MapHeightInPixels: 1280
+  MapWidthInPixels: 0
+  MapHeightInPixels: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

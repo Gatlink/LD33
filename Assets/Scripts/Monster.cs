@@ -3,18 +3,36 @@ using System.Collections;
 
 public class Monster : Mobile
 {
+	private enum State 
+	{
+		IDLE
+		, SHOT
+		, FOLLOWING
+	};
+
 	[Space(5)]
 	public Transform Player;
 	public float DistanceMinFromPlayer = 128f;
 
+	private State _currentState = State.IDLE;
+
 	public virtual void FixedUpdate()
 	{
-		var direction = Player.position - transform.position;
-		var sqrdDist = direction.sqrMagnitude;
-		var r = sqrdDist - (DistanceMinFromPlayer * DistanceMinFromPlayer);
-		direction.Normalize();
-		direction *= Mathf.Lerp(0, 1f, Mathf.Clamp01(r));
-		Move(direction);
+		if(_currentState == State.IDLE)
+		{
+			var direction = Player.position - transform.position;
+			var sqrdDist = direction.sqrMagnitude;
+			var sqrMinDist = DistanceMinFromPlayer * DistanceMinFromPlayer;
+
+			if(sqrdDist > sqrMinDist)
+			{
+				var r = sqrdDist - sqrMinDist;
+				direction.Normalize();
+				direction *= Mathf.Lerp(0, 1f, Mathf.Clamp01(r));
+				Move(direction);
+				_currentState = State.FOLLOWING;
+			}
+		}
 
 		// Turn toward the player
 		var scale = transform.localScale;
@@ -25,5 +43,15 @@ public class Monster : Mobile
 	public void GetKicked(Vector3 force)
 	{
 		_rigidbody.AddForce(force);
+		_currentState = State.SHOT;
+	}
+
+	public void OnCollisionEnter2D(Collision2D collision)
+	{
+		if(collision.collider.tag == "Player")
+			return;
+
+		if(collision.collider.tag == "Ennemy")
+			_rigidbody.velocity = Vector3.zero;
 	}
 }
