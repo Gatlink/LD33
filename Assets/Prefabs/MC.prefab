@@ -133,10 +133,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 10000
   Life: 50
-  Damage: 12
   Cursor: {fileID: 0}
   KickDistance: 1
-  KickStrength: 2e+07
+  KickStrength: 20000
 --- !u!212 &21215360
 SpriteRenderer:
   m_ObjectHideFlags: 1
