@@ -48,6 +48,11 @@ public class Monster : Mobile
 		var scale = transform.localScale;
 		scale.x = Player.position.x < transform.position.x ? -1f : 1f;
 		transform.localScale = scale;
+
+		if(_rigidbody.IsSleeping())
+		{
+			_currentState = State.IDLE;
+		}
 	}
 
 	public void GetKicked(Vector3 force)
