@@ -16,11 +16,13 @@ public class Monster : Mobile
 	public float DistanceMinFromPlayer = 128f;
 
 	private State _currentState = State.IDLE;
+	private Animator _anim;
 
 	public override void Start()
 	{
 		base.Start();
 		Physics2D.IgnoreCollision(Player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+		_anim = GetComponent<Animator>();
 	}
 
 	public virtual void FixedUpdate()
@@ -34,9 +36,10 @@ public class Monster : Mobile
 			bool tooFar = sqrdDist > sqrMinDist;
 			if(tooFar)
 			{
-				var r = sqrdDist - sqrMinDist;
+				var speed = Mathf.Clamp01(sqrdDist - sqrMinDist);
 				direction.Normalize();
-				direction *= Mathf.Lerp(0, 1f, Mathf.Clamp01(r));
+				direction *= speed;
+				_anim.SetFloat("Speed", speed);
 				Move(direction);				
 			}
 			_currentState = tooFar ? State.FOLLOWING : State.IDLE;
