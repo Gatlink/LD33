@@ -9,9 +9,13 @@ public abstract class Enemy : Character
 
 	[Space(5)]
 	[Range(0f,5f)]
-	public float MinRandomDelay = 1f;
-	[Range(1f,10f)]
-	public float MaxRandomDelay = 3f;
+	public float MinRandomDuration = 1f;
+	[Range(0.5f,5.5f)]
+	public float MaxRandomDuration = 3f;
+	[Range(0f,10f)]
+	public float MinPauseDuration = 1f;
+	[Range(0.5f,10.5f)]
+	public float MaxPauseDuration = 1.5f;
 
 	private Coroutine _randomMovement = null;
 
@@ -52,17 +56,26 @@ public abstract class Enemy : Character
 
 	protected IEnumerator MoveRandomly()
 	{
-		float duration = Random.Range(MinRandomDelay, MaxRandomDelay);
+		float moveDuration = Random.Range(MinRandomDuration, MaxRandomDuration);
 		Vector3 dir = Random.insideUnitCircle;
 		dir.Normalize();
 		
 		float start = Time.time;
 		float elapsed = 0f;
-		while(elapsed < duration) {
+		while(elapsed < moveDuration) {
 			elapsed = Time.time - start;
 			Move(dir);
 			yield return 0;
 		}
+
+		float pauseDuration = Random.Range(MinPauseDuration, MaxPauseDuration);
+		start = Time.time;
+		elapsed = 0f;
+		while(elapsed < pauseDuration) {
+			elapsed = Time.time - start;
+			yield return 0;
+		}
+		
 		_randomMovement = null;
 	}
 
