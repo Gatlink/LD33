@@ -10,16 +10,19 @@ public class MainCharacter : Character
 	public float KickDistance = 1f;
 	public float KickStrength = 5f;
 
+	private Transform _feet;
+
+#region singleton
 	private static MainCharacter _instance;
     public static MainCharacter Instance
     {
         get
         {
 
-#if UNITY_EDITOR
+	#if UNITY_EDITOR
             if(_instance == null)
                 _instance = GameObject.FindObjectOfType<MainCharacter>();
-#endif
+	#endif
 
             return _instance;
         }
@@ -36,6 +39,13 @@ public class MainCharacter : Character
             Debug.Log("Cannot have two instances of " + typeof(MainCharacter).ToString() + " : " + _instance);
             Destroy(this.gameObject);
         }
+    }
+#endregion
+
+    public override void Start()
+    {
+    	base.Start();
+    	_feet = transform.GetChild(0);
     }
 
     public static void Destroy()
@@ -73,8 +83,8 @@ public class MainCharacter : Character
 
 	public override void Attack() 
 	{
-		var direction = (Cursor.position - transform.position).normalized;
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 64f, 1 << LayerMask.NameToLayer("Monster"));
+		var direction = (Cursor.position - _feet.position).normalized;
+		RaycastHit2D hit = Physics2D.Raycast(_feet.position, direction, 64f, 1 << LayerMask.NameToLayer("Monster"));
 		if (hit.collider != null)
 		{
 			var monster = hit.collider.GetComponent<Monster>();

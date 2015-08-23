@@ -83,4 +83,19 @@ public abstract class Enemy : Character
 		}
 		CanAttack = true;
 	}
+
+	public void OnCollisionEnter2D(Collision2D col)
+	{
+		if (col.gameObject.tag == "Monster")
+		{
+			var damage = (int) col.rigidbody.velocity.magnitude;
+			Debug.Log(damage);
+			Hurt(damage);
+		}
+	}
+
+	public override void Die()
+	{
+		GetComponent<SpriteRenderer>().color = Color.red;
+	}
 }

@@ -27,9 +27,4 @@ public class BrawlerEnemy : Enemy
 			MainCharacter.Instance.Hurt(Damage);
 		}
 	}
-
-	public override void Die()
-	{
-		Debug.Log(name + " died");
-	}
 }
