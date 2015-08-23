@@ -7,7 +7,9 @@ public class BrawlerEnemy : Enemy
 	{
 		Tracking = true;
 		Vector3 toTarget = MainCharacter.Instance.transform.position - transform.position;
-		if(toTarget.sqrMagnitude < 64f * 64f)
+		bool inRange = toTarget.sqrMagnitude <= AttackRange * AttackRange;
+		
+		if(inRange)
 		{
 			Attack();
 		}

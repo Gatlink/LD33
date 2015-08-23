@@ -3,9 +3,14 @@ using System.Collections;
 
 public abstract class Enemy : Character 
 {
+	[Space(5)]
+	public int Damage = 12;
 	public float AcquisitionRange = 150f;
+	public float AttackRange = 64f;
 	public float AttackCooldown = 1f;
-	public int MinVelocityToGetHurt = 200;
+
+	[Space(5)]
+	public int MinVelocityToGetHurt = 200;	
 
 	[Space(5)]
 	[Range(0f,5f)]
