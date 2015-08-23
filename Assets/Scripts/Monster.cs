@@ -18,20 +18,21 @@ public class Monster : Mobile
 
 	public virtual void FixedUpdate()
 	{
-		if(_currentState == State.IDLE)
+		if(_currentState == State.IDLE || _currentState == State.FOLLOWING)
 		{
 			var direction = Player.position - transform.position;
 			var sqrdDist = direction.sqrMagnitude;
 			var sqrMinDist = DistanceMinFromPlayer * DistanceMinFromPlayer;
 
-			if(sqrdDist > sqrMinDist)
+			bool tooFar = sqrdDist > sqrMinDist;
+			if(tooFar)
 			{
 				var r = sqrdDist - sqrMinDist;
 				direction.Normalize();
 				direction *= Mathf.Lerp(0, 1f, Mathf.Clamp01(r));
-				Move(direction);
-				_currentState = State.FOLLOWING;
+				Move(direction);				
 			}
+			_currentState = tooFar ? State.FOLLOWING : State.IDLE;
 		}
 
 		// Turn toward the player
