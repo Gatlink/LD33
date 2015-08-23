@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: a1af1ef062640a04280e96c04f79f343
-timeCreated: 1440335230
+guid: 7ba3d482f0184924e9a93af329aaa7bc
+timeCreated: 1440335274
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: CH_EarlRun_0
-    21300002: CH_EarlRun_1
-    21300004: CH_EarlRun_2
-    21300006: CH_EarlRun_3
+    21300000: CH_Monster1Run_0
+    21300002: CH_Monster1Run_1
+    21300004: CH_Monster1Run_2
+    21300006: CH_Monster1Run_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: 16
+    aniso: -1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -53,45 +53,45 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: CH_EarlRun_0
+    - name: CH_Monster1Run_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 64
-        height: 64
+        height: 50
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CH_EarlRun_1
+    - name: CH_Monster1Run_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 64
-        height: 64
+        height: 50
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CH_EarlRun_2
+    - name: CH_Monster1Run_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 64
-        height: 64
+        height: 50
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CH_EarlRun_3
+    - name: CH_Monster1Run_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
         width: 64
-        height: 64
+        height: 50
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

@@ -27,6 +27,8 @@ public class Monster : Mobile
 
 	public virtual void FixedUpdate()
 	{
+		var speed = 0f;
+
 		if(_currentState == State.IDLE || _currentState == State.FOLLOWING)
 		{
 			var direction = Player.position - transform.position;
@@ -36,10 +38,9 @@ public class Monster : Mobile
 			bool tooFar = sqrdDist > sqrMinDist;
 			if(tooFar)
 			{
-				var speed = Mathf.Clamp01(sqrdDist - sqrMinDist);
+				speed = Mathf.Clamp01(sqrdDist - sqrMinDist);
 				direction.Normalize();
 				direction *= speed;
-				_anim.SetFloat("Speed", speed);
 				Move(direction);				
 			}
 			_currentState = tooFar ? State.FOLLOWING : State.IDLE;
@@ -51,6 +52,8 @@ public class Monster : Mobile
 		var scale = transform.localScale;
 		scale.x = Player.position.x < transform.position.x ? -1f : 1f;
 		transform.localScale = scale;
+
+		_anim.SetFloat("Speed", speed);
 
 		if(_rigidbody.IsSleeping())
 		{
