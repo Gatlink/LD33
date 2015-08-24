@@ -98,7 +98,6 @@ GameObject:
   - 212: {fileID: 56438368}
   - 61: {fileID: 56438367}
   - 50: {fileID: 56438366}
-  - 95: {fileID: 56438365}
   - 114: {fileID: 56438364}
   m_Layer: 0
   m_Name: Shooter
@@ -128,24 +127,6 @@ MonoBehaviour:
   MaxRandomDuration: 3
   MinPauseDuration: 1
   MaxPauseDuration: 1.5
---- !u!95 &56438365
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 9588286, guid: 7be3a57c1a3e12a4e90fdab519a325a4,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 56438363}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aaa034fea556d254da6779323c9cdb61, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!50 &56438366
 Rigidbody2D:
   serializedVersion: 2
@@ -174,9 +155,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 4, y: 30}
+  m_Offset: {x: -2, y: 45}
   serializedVersion: 2
-  m_Size: {x: 30, y: 20}
+  m_Size: {x: 45, y: 50}
 --- !u!212 &56438368
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -202,8 +183,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d2049fbedcc51224496be1443e97d4aa, type: 3}
-  m_Color: {r: .0339758545, g: 0, b: .985294104, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ed3aa1b7938fe99439428fa54defdfd8, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &56438369
 Transform:
   m_ObjectHideFlags: 0
